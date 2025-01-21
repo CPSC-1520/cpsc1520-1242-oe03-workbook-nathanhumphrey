@@ -40,3 +40,17 @@ btnProp.addEventListener('mousedown', (evt) => {
 // document.addEventListener('click', () => {
 //   alert('From document');
 // });
+
+// Event Default Behaviour
+let link = document.querySelector('.link');
+
+link.addEventListener('click', (evt) => {
+  if (confirm('Are you sure you want to leave?') == false) {
+    evt.preventDefault();
+  }
+
+  // Using the not (!) operator
+  // if (!confirm('Are you sure you want to leave?')) {
+  //   evt.preventDefault();
+  // }
+});
