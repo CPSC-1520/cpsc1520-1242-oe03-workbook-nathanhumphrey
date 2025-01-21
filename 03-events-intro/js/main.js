@@ -19,3 +19,24 @@ btn.addEventListener('click', () => {
   document.querySelector('.output').innerHTML = 'Button clicked x 3';
   console.log('called from arrow function');
 });
+
+// Event Propagation
+let divProp = document.querySelector('.prop');
+let btnProp = document.querySelector('.btn-prop');
+
+divProp.addEventListener('mousedown', () => {
+  alert('From div');
+});
+
+btnProp.addEventListener('mousedown', (evt) => {
+  console.log(evt);
+  if (evt.button == 2) {
+    evt.stopPropagation();
+  }
+
+  alert('From button');
+});
+
+// document.addEventListener('click', () => {
+//   alert('From document');
+// });
