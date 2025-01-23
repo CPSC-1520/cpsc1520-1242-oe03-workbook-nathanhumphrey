@@ -21,7 +21,21 @@
   <body>
     <section>
       <h1>Loan Payment Calculator</h1>
-
+      <form id="payment-form" method="get">
+        <div class="mb-3">
+          <label for="principal" class="form-label">Principal</label>
+          <input type="number" class="form-control" id="principal" />
+        </div>
+        <div class="mb-3">
+          <label for="rate" class="form-label">Annual Rate</label>
+          <input type="number" class="form-control" id="rate" />
+        </div>
+        <div class="mb-3">
+          <label for="term" class="form-label">Number of years</label>
+          <input type="number" class="form-control" id="term" />
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate Payment</button>
+      </form>
       <p>Payment: <span class="output"></span></p>
     </section>
   </body>
