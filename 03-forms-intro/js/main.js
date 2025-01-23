@@ -6,16 +6,31 @@ let interestRate;
 let numberOfMonths;
 let payment;
 
+const form = document.querySelector('#payment-form');
+
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  // Assume valid input ... for now
+  principal = parseInt(form.elements.principal.value);
+  interestRate = parseFloat(form.elements.rate.value) / 1200;
+  numberOfMonths = parseInt(form.elements.term.value) * 12;
+
+  payment = calculatePayment(principal, interestRate, numberOfMonths);
+  console.log(payment);
+  displayPayment(payment);
+});
+
 // Capture input from the user
 // TODO: implement some type checking (if-else, loops, etc.) on all inputs
 // Make use of isNaN to check for non-convertible values
-principal = parseFloat(prompt('Enter principal amount'));
+// principal = parseFloat(prompt('Enter principal amount'));
 // Other options for converting to a number
 // principal = Number(prompt('Enter principal amount'));
 // principal = +prompt('Enter principal amount');
 
-interestRate = parseFloat(prompt('Enter annual interest rate')) / 1200;
-numberOfMonths = parseInt(prompt('Enter number of years')) * 12;
+// interestRate = parseFloat(prompt('Enter annual interest rate')) / 1200;
+// numberOfMonths = parseInt(prompt('Enter number of years')) * 12;
 
 // If using a function expression, you must assign before use/calling.
 // The calculatePayment function would need to be defined here, before
@@ -27,11 +42,11 @@ numberOfMonths = parseInt(prompt('Enter number of years')) * 12;
 //   return p * (upper / bottom);
 // }
 
-payment = calculatePayment(principal, interestRate, numberOfMonths);
+// payment = calculatePayment(principal, interestRate, numberOfMonths);
 
-console.log(payment);
+// console.log(payment);
 
-displayPayment(payment);
+// displayPayment(payment);
 
 // If using declared functions, you can place them anywhere; here
 // we place the calculatePayment and displayPayment functions at
