@@ -78,6 +78,15 @@ function calculatePayment(p, i, n) {
 function displayPayment(payment) {
   // Using contcat
   // document.querySelector('.output').innerHTML = '$' + payment.toFixed(2);
+
+  // Using a formatter
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  const formattedPayment = formatter.format(payment);
+
   // Using template literals: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-  document.querySelector('.output').innerHTML = `$${payment.toFixed(2)}`;
+  document.querySelector('.output').innerHTML = `${formattedPayment}`;
 }
