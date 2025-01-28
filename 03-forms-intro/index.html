@@ -26,12 +26,15 @@
             <span class="input-group-text">$</span>
             <input
               type="number"
-              step="100"
+              step="1"
               class="form-control"
               id="principal"
               name="principal"
             />
             <span class="input-group-text">.00</span>
+            <div id="validationAmountFeedback" class="invalid-feedback">
+              Amount must be greater than or equal to 100.
+            </div>
           </div>
         </div>
         <div class="mb-3">
@@ -45,11 +48,17 @@
               name="rate"
             />
             <span class="input-group-text">%</span>
+            <div id="validationRateFeedback" class="invalid-feedback">
+              Rate must be between 0 and 100.
+            </div>
           </div>
         </div>
         <div class="mb-3">
           <label for="term" class="form-label">Number of years</label>
           <input type="number" class="form-control" id="term" name="term" />
+          <div id="validationTermFeedback" class="invalid-feedback">
+            Number of years must be a positive whole number.
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Calculate Payment</button>
       </form>

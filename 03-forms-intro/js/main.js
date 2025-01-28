@@ -1,5 +1,3 @@
-// Prompt for required inputs and display a monthly payment
-
 // Required input variables
 let principal;
 let interestRate;
@@ -11,48 +9,28 @@ const form = document.querySelector('#payment-form');
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
-  // Assume valid input ... for now
+  let isValid = true;
+
+  // Check the principal
   principal = parseInt(form.elements.principal.value);
+  if (isNaN(principal) || principal < 100) {
+    isValid = false; // the form is NOT valid
+    form.elements.principal.classList.add('is-invalid'); // show the user
+    form.elements.principal.select(); // select the invalid value
+  } else {
+    form.elements.principal.classList.remove('is-invalid');
+  }
+
+  // TODO: complete the validation for the following fields
   interestRate = parseFloat(form.elements.rate.value) / 1200;
   numberOfMonths = parseInt(form.elements.term.value) * 12;
 
-  payment = calculatePayment(principal, interestRate, numberOfMonths);
-  console.log(payment);
-  displayPayment(payment);
+  if (isValid == true) {
+    payment = calculatePayment(principal, interestRate, numberOfMonths);
+    console.log(payment);
+    displayPayment(payment);
+  }
 });
-
-// Capture input from the user
-// TODO: implement some type checking (if-else, loops, etc.) on all inputs
-// Make use of isNaN to check for non-convertible values
-// principal = parseFloat(prompt('Enter principal amount'));
-// Other options for converting to a number
-// principal = Number(prompt('Enter principal amount'));
-// principal = +prompt('Enter principal amount');
-
-// interestRate = parseFloat(prompt('Enter annual interest rate')) / 1200;
-// numberOfMonths = parseInt(prompt('Enter number of years')) * 12;
-
-// If using a function expression, you must assign before use/calling.
-// The calculatePayment function would need to be defined here, before
-// it is called below to be valid.
-//
-// const calculatePayment = function (p, i, n) {
-//   let upper = i * Math.pow(1 + i, n);
-//   let bottom = Math.pow(1 + i, n) - 1;
-//   return p * (upper / bottom);
-// }
-
-// payment = calculatePayment(principal, interestRate, numberOfMonths);
-
-// console.log(payment);
-
-// displayPayment(payment);
-
-// If using declared functions, you can place them anywhere; here
-// we place the calculatePayment and displayPayment functions at
-// the end of the file.
-//
-// We are also using JSDoc to document the functions: https://jsdoc.app/
 
 /**
  * Calculate the monthly payment for a loan.
