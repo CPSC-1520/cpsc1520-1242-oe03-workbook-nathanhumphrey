@@ -11,6 +11,38 @@ const thumbnails = document.querySelector('div.thumbnails');
 let buttonState = 'Small';
 
 button.addEventListener('click', () => {
+  // switch option
+  switch (buttonState) {
+    case 'Small':
+      buttonState = 'Medium';
+
+      thumbnails.classList.remove('lg');
+      thumbnails.classList.add('sm');
+
+      button.innerText = buttonState;
+      break;
+    case 'Medium':
+      buttonState = 'Large';
+
+      thumbnails.classList.remove('sm');
+      thumbnails.classList.add('md');
+
+      button.innerText = buttonState;
+      break;
+    case 'Large':
+      buttonState = 'Small';
+
+      thumbnails.classList.remove('md');
+      thumbnails.classList.add('lag');
+
+      button.innerText = buttonState;
+      break;
+    default:
+      console.log('Should never see this');
+      break;
+  }
+
+  /* if-else-if solution
   if (buttonState == 'Small') {
     buttonState = 'Medium';
 
@@ -34,4 +66,5 @@ button.addEventListener('click', () => {
 
     button.innerText = buttonState;
   }
+  */
 });
