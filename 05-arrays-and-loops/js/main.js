@@ -19,3 +19,13 @@ for (let idx = 0; idx < names.length; idx += 1) {
 // while ((n = names[count++])) {
 //   console.log(n);
 // }
+
+// Display the names in the ul.names-list
+const list = document.querySelector('#names-list');
+let namesItems = '';
+
+for (let idx = 0; idx < names.length; idx += 1) {
+  namesItems = namesItems + '<li>' + names[idx] + '</li>';
+}
+
+list.innerHTML = namesItems;
