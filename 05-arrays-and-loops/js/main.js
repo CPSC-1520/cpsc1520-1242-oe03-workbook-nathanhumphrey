@@ -22,10 +22,26 @@ for (let idx = 0; idx < names.length; idx += 1) {
 
 // Display the names in the ul.names-list
 const list = document.querySelector('#names-list');
+
+// Using array methods
+list.innerHTML = names
+  .map((item) => {
+    return `<li>${item}</li>`;
+  })
+  .join('');
+
+/*
 let namesItems = '';
 
-for (let idx = 0; idx < names.length; idx += 1) {
-  namesItems = namesItems + '<li>' + names[idx] + '</li>';
-}
+// Prefer this functional approach over loops
+names.forEach((item) => {
+  namesItems += `<li>${item}</li>`;
+});
+*/
 
-list.innerHTML = namesItems;
+// for loop version
+// for (let idx = 0; idx < names.length; idx += 1) {
+//   namesItems = namesItems + '<li>' + names[idx] + '</li>';
+// }
+
+// list.innerHTML = namesItems;
