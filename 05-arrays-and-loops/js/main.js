@@ -87,3 +87,18 @@ console.log(sum(1, 2, 3, 4, 5));
 const nums = [1, 2, 3, 4, 5];
 
 console.log(sum(...nums));
+
+// Get all the names we just put into the document
+let namesElements = document.querySelectorAll('#names-list li');
+
+// Convert to an array using spread operator (...) and then filter only
+// names that contain 'a' (case-insensitive)
+let aNameElements = [...namesElements].filter((nameEl) =>
+  nameEl.innerText.toLowerCase().includes('a')
+);
+console.log(aNameElements);
+
+// Reduce the nums array to a single value, in this case a sum
+let sumReduce = nums.reduce((sum, num) => (sum += num), 0);
+
+console.log(`Sum of nums: ${sumReduce}`);
