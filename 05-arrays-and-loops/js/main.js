@@ -45,3 +45,60 @@ names.forEach((item) => {
 // }
 
 // list.innerHTML = namesItems;
+
+// ARRAY AND NODELIST WORK
+
+// Get all paragraphs in a NodeList
+let paras = document.querySelectorAll('.nodelist p');
+
+// NodeList does not support the full Array API
+console.log('Has filter()? ', paras.filter != undefined);
+
+// Create an array using Array.from() or the spred operator (...)
+
+let pArrayFrom = Array.from(paras);
+let pArraySpread = [...paras];
+
+// The rest operator (...)
+// A function that expects at least two params, but
+// can operate on any number of params by collecting
+// them into a 'rest param'.
+
+// ex. sum(1, 2, 3, 4) would pass a=1, b=2, args=[3, 4]
+
+function sum(a, b, ...args) {
+  // What is args?
+  console.log(args);
+
+  let sum = a + b;
+  if (args && args.length > 0) {
+    args.forEach((arg) => (sum += arg));
+    // for (let i = 0; i < args.length; i += 1) {
+    //   sum += args[i];
+    // }
+  }
+  return sum;
+}
+
+// Call with any number of arguments
+console.log(sum(1, 2, 3, 4, 5));
+
+// Can use the spread operator to pass the args
+const nums = [1, 2, 3, 4, 5];
+
+console.log(sum(...nums));
+
+// Get all the names we just put into the document
+let namesElements = document.querySelectorAll('#names-list li');
+
+// Convert to an array using spread operator (...) and then filter only
+// names that contain 'a' (case-insensitive)
+let aNameElements = [...namesElements].filter((nameEl) =>
+  nameEl.innerText.toLowerCase().includes('a')
+);
+console.log(aNameElements);
+
+// Reduce the nums array to a single value, in this case a sum
+let sumReduce = nums.reduce((sum, num) => (sum += num), 0);
+
+console.log(`Sum of nums: ${sumReduce}`);
