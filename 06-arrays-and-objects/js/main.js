@@ -21,6 +21,8 @@ const customers = [
   },
 ];
 
+('[{"id":1000,"firstName":"Jane","lastName":"Doe","preferred":false},{"id":1001,"firstName":"Sally","lastName":"Anne","preferred":true},{"id":1002,"firstName":"Mary","lastName":"Jane","preferred":false}]');
+
 // Task: render a table of all the customers
 
 /**
