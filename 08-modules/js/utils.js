@@ -1,7 +1,7 @@
 async function getTemps() {
-  const res = await fetch('data/temps.json');
+  const res = await fetch('http://localhost:3000/temps');
   const json = await res.json();
-  return json['temps'];
+  return json;
 }
 
 export { getTemps };

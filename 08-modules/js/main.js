@@ -1,5 +1,6 @@
-import { getTemps } from './utils.js';
 import Chart from 'chart.js/auto';
+import { getTemps } from './utils.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 (async () => {
   const temps = await getTemps();
@@ -7,7 +8,7 @@ import Chart from 'chart.js/auto';
   console.log(temps);
 
   new Chart(
-    document.getElementById('acquisitions'),
+    document.querySelector('.chart'),
     {
       type: 'bar',
       data: {
