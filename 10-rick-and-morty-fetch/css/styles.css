@@ -19,3 +19,8 @@ input {
   margin: auto;
   margin-top: 2em;
 }
+
+.search-results img {
+  width: 2.5em;
+  height: 2.5em;
+}
