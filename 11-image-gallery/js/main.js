@@ -78,6 +78,10 @@ document.querySelector('.controls').addEventListener('click', (evt) => {
   // }
 });
 
+/**
+ * Updates the current image shown in the gallery.
+ * @param {number} direction positive direction for next, negative for previous
+ */
 function updateCurrentImage(direction) {
   if (direction > 0) {
     currentImageIndex += 1;
@@ -94,10 +98,17 @@ function updateCurrentImage(direction) {
   }
 }
 
+/**
+ * Displays an image in the gallery.
+ * @param {number} index the index of the images array to display
+ */
 function displayImage(index) {
   document.querySelector('.gallery img').src = images[index];
 }
 
+/**
+ * Starts the slideshow.
+ */
 function startSlideshow() {
   // Set an interval to run through the slideshow
   intervalId = setInterval(() => {
@@ -105,10 +116,17 @@ function startSlideshow() {
   }, 3000);
 }
 
+/**
+ * Stops the slideshow.
+ */
 function stopSlideshow() {
   clearInterval(intervalId);
 }
 
+/**
+ * Loads images from an array of paths.
+ * @param {string[]} imgArray - image source paths
+ */
 function preloadImages(imgArray) {
   imgArray.forEach(imgSrc => {
     const img = new Image();
