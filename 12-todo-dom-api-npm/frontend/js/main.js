@@ -7,6 +7,27 @@ async function init() {
   const todos = await fetchTodos();
   const todosList = document.querySelector('#todos');
   todosList.innerHTML = todos.map(renderTodo).join('');
+
+  // Add event listeners
+  todosList.addEventListener('click', (evt) => {
+    const target = evt.target;
+    if (target.classList.contains('up')) {
+      const parent = target.parentElement.parentElement;
+      if (parent.previousElementSibling != null) {
+        todosList.insertBefore(parent, parent.previousElementSibling);
+      }
+    }
+    else if (target.classList.contains('down')) {
+      const parent = target.parentElement.parentElement;
+      if (parent.nextElementSibling != null) {
+        todosList.insertBefore(parent.nextElementSibling, parent);
+      }
+    }
+    else if (target.classList.contains('delete')) {
+      // TODO: confirm that the user wants to delete
+      target.parentElement.parentElement.remove();
+    }
+  });
 }
 
 function renderTodo(todo) {
