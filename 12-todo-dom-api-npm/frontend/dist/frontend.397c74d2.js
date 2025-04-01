@@ -667,8 +667,54 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"agb61":[function(require,module,exports,__globalThis) {
-console.log('from main.js');
+var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
+var _utilsJs = require("./utils.js");
+(0, _utilsJs.fetchTodos)();
 
-},{}]},["MAtcu","agb61"], "agb61", "parcelRequire10c2", {})
+},{"./utils.js":"azjDB","bootstrap/dist/css/bootstrap.min.css":"i5LP7"}],"azjDB":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "fetchTodos", ()=>fetchTodos);
+const baseUrl = 'http://localhost:3000';
+/**
+ *
+ * @returns
+ */ async function fetchTodos() {
+    const res = await fetch(`${baseUrl}/todos`);
+    const todos = await res.json();
+    return todos;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"i5LP7":[function() {},{}]},["MAtcu","agb61"], "agb61", "parcelRequire10c2", {})
 
 //# sourceMappingURL=frontend.397c74d2.js.map
