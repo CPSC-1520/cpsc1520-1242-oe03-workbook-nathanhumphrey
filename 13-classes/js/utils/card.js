@@ -29,6 +29,7 @@ class Card {
 
     understoodButton.addEventListener('click', () => {
       this.understoodList.appendChild(this.element);
+      // TODO: remove or disable the remove and priority buttons
     });
   }
 }
