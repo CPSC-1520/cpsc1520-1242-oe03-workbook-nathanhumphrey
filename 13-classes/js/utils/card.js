@@ -20,15 +20,15 @@ class Card {
     const understoodButton = cardBody.children[4];
 
     removeButton.addEventListener('click', () => {
-      console.log('Remove clicked');
+      this.element.remove();
     });
 
     topPriorityButton.addEventListener('click', () => {
-      console.log('TopPriority clicked');
+      this.toLearnList.insertBefore(this.element, this.toLearnList.firstElementChild);
     });
 
     understoodButton.addEventListener('click', () => {
-      console.log('Understood clicked');
+      this.understoodList.appendChild(this.element);
     });
   }
 }

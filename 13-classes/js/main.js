@@ -71,7 +71,7 @@ newTopicForm.addEventListener('submit', (event) => {
   const titleElement = event.target.elements['title'];
   const descriptionElement = event.target.elements['description'];
   // create new card here
-
+  new Card({ title: titleElement.value, description: descriptionElement.value });
   titleElement.value = '';
   descriptionElement.value = '';
 });
