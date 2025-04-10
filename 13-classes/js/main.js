@@ -60,6 +60,7 @@ const stickies = [
 
 stickies.forEach((stickyDetail) => {
   // create new cards
+  new Card(stickyDetail);
 });
 
 const newTopicForm = document.querySelector('#new-topic-form');
