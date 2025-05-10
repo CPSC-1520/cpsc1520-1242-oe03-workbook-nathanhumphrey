@@ -1,0 +1,22 @@
+{
+  "name": "npm-fundamentals-start",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "parcel": "^2.13.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

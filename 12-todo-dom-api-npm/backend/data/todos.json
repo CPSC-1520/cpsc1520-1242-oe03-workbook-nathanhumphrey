@@ -1,0 +1,7 @@
+{
+  "todos": [
+    {"id": 1, "description": "Get groceries", "complete": false},
+    {"id": 2, "description": "Pay bills", "complete": false},
+    {"id": 3, "description": "Clear driveway", "complete": false}
+  ]
+}

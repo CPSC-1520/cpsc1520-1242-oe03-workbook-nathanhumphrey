@@ -1,0 +1,16 @@
+{
+  "temps": [
+    {
+      "month": "January",
+      "temp": -24.5
+    },
+    {
+      "month": "February",
+      "temp": -33.7
+    },
+    {
+      "month": "March",
+      "temp": 3.3
+    }
+  ]
+}
